@@ -27,7 +27,7 @@ const diccionarioIconos = {
 	salud: IconoSalud,
 }
 
-const Gasto = ({ gasto, setGastoEditar }) => {
+const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
 	const { categoria, nombre, cantidad, id, fecha } = gasto
 
 	const leadingActions = () => (
@@ -38,7 +38,9 @@ const Gasto = ({ gasto, setGastoEditar }) => {
 
 	const trailingActions = () => (
 		<TrailingActions>
-			<SwipeAction onClick={() => setGastoEditar(gasto)}>Borrar</SwipeAction>
+			<SwipeAction onClick={() => eliminarGasto(id)} destructive={true}>
+				Borrar
+			</SwipeAction>
 		</TrailingActions>
 	)
 	return (
